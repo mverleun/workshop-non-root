@@ -1,0 +1,11 @@
+FROM ubuntu
+
+USER 1984
+
+RUN id
+
+USER 0
+
+RUN id
+
+USER 4242

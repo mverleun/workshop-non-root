@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-root-demo
+  labels: 
+    name: demo-3
+spec:
+  securityContext:
+    runAsUser: 4242
+    runAsGroup: 3000
+    fsGroup: 2000
+  volumes:
+  - name: emptydir
+    emptyDir: {}
+  containers:
+  - name: container-host
+    image: ubuntu
+    command: [ "sh", "-c", "sleep 1h" ]
+    volumeMounts:
+    - name: emptydir
+      mountPath: /external

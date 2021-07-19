@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-root-nginx
+  labels: 
+    name: demo-4
+spec:
+  securityContext:
+    runAsUser: 4242
+    runAsGroup: 3000
+    fsGroup: 2000
+  containers:
+  - name: non-root-nginx
+    image: non-root-nginx:latest
+    imagePullPolicy: Never
