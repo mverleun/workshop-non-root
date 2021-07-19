@@ -7,7 +7,7 @@ RUN sed -i -E 's/80/5000/' /etc/nginx/conf.d/default.conf
 
 # Fix file permissions
 RUN chown -R 4242 /var/log/nginx /var/cache/nginx
-RUN chmod 777 /var/run
+RUN chmod 1777 /var/run
 
 # Run as non privileged user
 USER 4242

@@ -243,7 +243,7 @@ Step 3/6 : RUN sed -i -E 's/80/5000/' /etc/nginx/conf.d/default.conf
 Step 4/6 : RUN chown -R 4242 /var/log/nginx /var/cache/nginx
  ---> Using cache
  ---> 7edd248328d0
-Step 5/6 : RUN chmod 777 /var/run
+Step 5/6 : RUN chmod 1777 /var/run
  ---> Using cache
  ---> ad46ed82b9b7
 Step 6/6 : USER 4242
@@ -284,6 +284,8 @@ nginx: [warn] the "user" directive makes sense only if the master process runs w
 ```
 
 Again you have to press `Ctl + C` to break out of this container.
+
+> Question: Why chmod 1777 and not chmod 777?
 
 These non-root images can be deployed in a Kubernetes cluster as well.
 This is not easy to demo because the image resides local on your workstation and kubernetes expects the image to be present in a repository.
